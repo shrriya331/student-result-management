@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'students',
 ]
 
+# Redirects after login/logout
+LOGIN_REDIRECT_URL = '/students/my-results/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
