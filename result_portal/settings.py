@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 ]
 
 # Redirects after login/logout
-LOGIN_REDIRECT_URL = '/students/my-results/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 MIDDLEWARE = [

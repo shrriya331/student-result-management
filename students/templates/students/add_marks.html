@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Marks</title>
-</head>
-<body>
-    <h1>Enter Student Marks</h1>
+{% extends 'base.html' %}
+{% block title %}Add Marks{% endblock %}
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+{% block content %}
+<div class="container mt-4">
+  <h2>Enter Student Marks</h2>
+  <form method="POST" class="card p-4 shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+{% endblock %}
 
-    <p><a href="/admin/">Back to Admin</a></p>
-</body>
-</html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    {% if user.is_authenticated %}
+        <h2>Welcome back, {{ user.username }}!</h2>
+
+        {% if role == 'student' %}
+            <a href="{% url 'view_results' %}" class="btn btn-primary mt-3">View My Results</a>
+        {% elif role == 'teacher' %}
+            <a href="{% url 'add_marks' %}" class="btn btn-success mt-3">Add Marks</a>
+        {% elif role == 'admin' %}
+            <a href="{% url 'admin:index' %}" class="btn btn-dark mt-3">View Database</a>
+        {% endif %}
+
+    {% else %}
+        <h2>Welcome to the Student Result Management System</h2>
+        <p class="lead">Please <a href="{% url 'login' %}">login</a> to continue.</p>
+    {% endif %}
+</div>
+{% endblock %}

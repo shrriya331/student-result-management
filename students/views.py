@@ -4,6 +4,20 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Marks, Student
 from django.shortcuts import get_object_or_404
 
+def home(request):
+    role = None
+
+    if request.user.is_authenticated:
+        if request.user.is_superuser:
+            role = 'admin'
+        elif request.user.is_staff:
+            role = 'teacher'
+        else:
+            role = 'student'
+
+    return render(request, 'students/home.html', {'role': role})
+
+
 def is_teacher(user):
     return user.is_staff  # Or define your own logic later
 
